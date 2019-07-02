@@ -13,11 +13,6 @@ void setup()
 
 
 
-  pinMode       (1,    INPUT);    // LED's vorbereiten
-  pinMode       (3,    INPUT);    // LED's vorbereiten
-
-
-
 }
 
 void loop()
