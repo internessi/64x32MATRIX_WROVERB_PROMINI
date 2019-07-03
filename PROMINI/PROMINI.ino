@@ -21,7 +21,6 @@ void setup() {
 
   Serial.begin(115200);  
   delay(200);
-  Serial.println("Starting up");
 
   pinMode       (B_LED,  OUTPUT);  
   digitalWrite  (B_LED,  HIGH);
@@ -33,15 +32,15 @@ void setup() {
   digitalWrite  (B_LED,  LOW);
   delay(200);
   digitalWrite  (B_LED,  HIGH);
-  delay(200);
   digitalWrite  (G_LED,  LOW);
   delay(200);
   digitalWrite  (G_LED,  HIGH);
-  delay(200);
   digitalWrite  (R_LED,  LOW);
   delay(200);
   digitalWrite  (R_LED,  HIGH);
-
+  
+  delay(200);
+  
 } 
 
 
