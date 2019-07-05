@@ -26,30 +26,28 @@ void setup() {
   pinMode       (32,    OUTPUT);    
   digitalWrite  (32,    LOW);       // 19 - DISPLAY AUS
   
- // DISPLAY_AUS();
+  DISPLAY_AUS();
   Serial.begin(115200);
   delay(200);
-
- // BUZZER(20);
+  
+  BUZZER(20);
   Serial.println("O");
   delay(2000);
-
-
-
-
-  Serial.println("R");
-  //DISPLAY_AN();
-
-  // BUZZER(150);
   
-  // xTaskCreate(&loop2_task, "loop2_task", 2048, NULL, 5, NULL);
+ 
+  DISPLAY_AN();
+   Serial.println("R");
+  
+  BUZZER(150);
+  
+  xTaskCreate(&loop2_task, "loop2_task", 2048, NULL, 5, NULL);
   /* 1 tick take 1/(80MHZ/80) = 1us so we set divider 80 and count up */
-  // displayUpdateTimer = timerBegin(0, 80, true);
+  displayUpdateTimer = timerBegin(0, 80, true);
   /* Attach onTimer function to our timer */
-  // timerAttachInterrupt(displayUpdateTimer, &onDisplayUpdate, true);
-  // timerAlarmWrite(displayUpdateTimer, 2, true);
-  // timerAlarmEnable(displayUpdateTimer); 
-  Serial.println("OK2                           ");
+  timerAttachInterrupt(displayUpdateTimer, &onDisplayUpdate, true);
+  timerAlarmWrite(displayUpdateTimer, 2, true);
+  timerAlarmEnable(displayUpdateTimer); 
+  Serial.println("OK2");
 }
 
 
@@ -190,11 +188,19 @@ void DISPLAY_AUS(){
   delay(200);
   digitalWrite  (32,    LOW);
   delay(200);
+   digitalWrite  (32,    HIGH);      
+  delay(300);
+  digitalWrite  (32,    LOW);
+  delay(200);
 }
 
 void DISPLAY_AN(){
   digitalWrite  (33,    HIGH);      
   delay(200);
+  digitalWrite  (33,    LOW);
+  delay(200);
+   digitalWrite  (33,    HIGH);      
+  delay(300);
   digitalWrite  (33,    LOW);
   delay(200);
 }
